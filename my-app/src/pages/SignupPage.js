@@ -10,14 +10,13 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import "../css/LoginPage.css";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Marco Jansen
+      Marco Jansen
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -31,8 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     backgroundImage:
-      // "url(../utils/assets/backgroundLogin.jpg)",
-      "url(https://preview.redd.it/lh8eyf5pmm311.png?auto=webp&s=6db8e06c3efc13a54169446791da78fa43143194)",
+      "url(https://i.imgflip.com/54jzm2.jpg)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -60,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginPage() {
+export default function SignupPage() {
   const classes = useStyles();
 
   const [error, setError] = useState("");
@@ -83,7 +81,7 @@ export default function LoginPage() {
       password: password,
     };
 
-    fetch("/api/login", {
+    fetch("/api/signup", {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {
@@ -112,13 +110,13 @@ export default function LoginPage() {
         <div className={classes.paper}>
           <Grid container className={classes.paper}>
             <h2>Junior Dev Exerise</h2>
-            <p>LoginPage</p>
+            <p>SignupPage</p>
           </Grid>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign up
           </Typography>
           <form className={classes.form}>
             <TextField
@@ -127,7 +125,7 @@ export default function LoginPage() {
               required
               fullWidth
               id="username"
-              label="Username"
+              label="username Address"
               name="username"
               autoComplete="username"
               autoFocus
@@ -142,29 +140,29 @@ export default function LoginPage() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
               onChange={handlePasswordChange}
+              autoComplete="current-password"
             />
 
             <Button
               type="submit"
               fullWidth
-              variant="text"
+              variant="primary"
               onClick={handleSubmit}
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               {/* <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
-                  </Grid> */}
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid> */}
               <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/" variant="body2">
+                  {"Already signed up? Login here"}
                 </Link>
               </Grid>
             </Grid>
