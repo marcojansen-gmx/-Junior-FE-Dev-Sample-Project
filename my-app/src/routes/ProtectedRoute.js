@@ -33,7 +33,7 @@ export default function ProtectedRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) =>
-        user.email ? (
+        user.username ? (
           children
         ) : (
           <Redirect
